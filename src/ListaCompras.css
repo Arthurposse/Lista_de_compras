@@ -1,0 +1,127 @@
+/* Tela Computador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-principal: #e8ab65;
+    --cor-secundaria: #dd934e;
+    --cor-terciaria: #ffdc93;
+    --cor-fonte_1: #d17a37;
+    --cor-fonte_2: #f4c47c;
+    
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+}
+
+.parte_esquerda {
+    background-color: var(--cor-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3vh;
+    height: 100vh;
+    width: 50%;
+    color: var(--cor-fonte_1);
+}
+
+.parte_esquerda img {
+    width: 20vw;
+}
+
+.parte_esquerda input {
+    padding: 2%;
+    width: 18vw;
+    height: 4vh;
+    border: 0;
+    border-radius: 2vw;
+    color: var(--cor-fonte_1);
+}
+
+.parte_esquerda input:focus {
+   outline: 0;
+}
+
+.parte_esquerda button {
+    background-color: var(--cor-fonte_1);
+    width: 10vw;
+    padding: 1%;
+    border: 0;
+    border-radius: 2vw;
+    cursor: pointer;
+    color: white;
+}
+
+.parte_esquerda button:hover {
+    background-color: var(--cor-secundaria);
+    transition: all .5s ease;
+}
+
+.parte_direita {
+    background-color: var(--cor-secundaria);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3vh;
+    height: 100vh;
+    width: 50%;
+    padding: 4%;
+    color: var(--cor-fonte_2);
+}
+
+.parte_direita #Lista {
+    width: 80%;
+    overflow-y: auto;
+}
+
+.parte_direita #Lista li {
+    background-color: var(--cor-terciaria);
+    margin-top: 4%;
+    padding: 3%;
+    border-radius: 2vw;
+    list-style-type: none;
+    color: var(--cor-fonte_1);
+}
+
+/* Tela Tablet */
+/* @media screen and (min-width: 481px) and (max-width: 800px) {
+
+} */
+
+/* Tela Celular */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .parte_esquerda, .parte_direita {
+        padding: 10%;
+        width: 100%;
+    }
+    
+    .parte_esquerda img {
+        width: 50%;
+    }
+
+    .parte_esquerda input {
+        padding: 2%;
+        width: 60vw;
+        height: 5vh;
+    }
+
+    .parte_esquerda button {
+        background-color: var(--cor-fonte_1);
+        width: 30vw;
+        padding: 3%;
+    }
+
+    .parte_direita {
+        height: 50vh;
+    }
+}
