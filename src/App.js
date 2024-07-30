@@ -7,6 +7,9 @@ function App() {
   const [textoItem, setTextoItem] = useState("");
   const [textoQuant, setTextoQuant] = useState("");
   const [itens, setItens] = useState([]);
+  const [editandoIndex, setEditandoIndex] = useState(null);
+  const [textoItemEditado, setTextoItemEditado] = useState("");
+  const [textoQuantEditado, setTextoQuantEditado] = useState("");
 
   const atualizarItem = (event) => {
     setTextoItem(event.target.value);
@@ -29,6 +32,26 @@ function App() {
     setItens(novosItens);
   };
 
+  const iniciarEdicao = (index) => {
+    setEditandoIndex(index);
+    setTextoItemEditado(itens[index].item);
+    setTextoQuantEditado(itens[index].quant);
+  };
+
+  const salvarEdicao = () => {
+    const novosItens = itens.map((item, index) =>
+      index === editandoIndex ? { item: textoItemEditado, quant: textoQuantEditado } : item
+    );
+    setItens(novosItens);
+    cancelarEdicao();
+  };
+
+  const cancelarEdicao = () => {
+    setEditandoIndex(null);
+    setTextoItemEditado("");
+    setTextoQuantEditado("");
+  };
+
   return (
     <div className="body">
       <div className="parte_esquerda">
@@ -36,23 +59,48 @@ function App() {
 
         <h1> Lista de Compras </h1>
 
-        <h3> Item: </h3>
-        <input
-          type="text"
-          placeholder="Insira o nome do item"
-          value={textoItem}
-          onChange={atualizarItem}
-        />
+        {editandoIndex !== null ? (
+          <>
+            <h3> Editar Item: </h3>
+            <input
+              type="text"
+              placeholder="Insira o nome do item"
+              value={textoItemEditado}
+              onChange={(e) => setTextoItemEditado(e.target.value)}
+            />
 
-        <h3> Quantidade: </h3>
-        <input
-          type="number"
-          placeholder="Insira a quantidade"
-          value={textoQuant}
-          onChange={atualizarQuant}
-        />
+            <h3> Editar Quantidade: </h3>
+            <input
+              type="number"
+              placeholder="Insira a quantidade"
+              value={textoQuantEditado}
+              onChange={(e) => setTextoQuantEditado(e.target.value)}
+            />
 
-        <button onClick={adicionarItem}>Adicionar</button>
+            <button onClick={salvarEdicao}>Salvar</button>
+            <button onClick={cancelarEdicao}>Cancelar</button>
+          </>
+        ) : (
+          <>
+            <h3> Item: </h3>
+            <input
+              type="text"
+              placeholder="Insira o nome do item"
+              value={textoItem}
+              onChange={atualizarItem}
+            />
+
+            <h3> Quantidade: </h3>
+            <input
+              type="number"
+              placeholder="Insira a quantidade"
+              value={textoQuant}
+              onChange={atualizarQuant}
+            />
+
+            <button onClick={adicionarItem}>Adicionar</button>
+          </>
+        )}
       </div>
 
       <div className="parte_direita">
@@ -60,7 +108,13 @@ function App() {
 
         <div className="Lista">
           {itens.map((item, index) => (
-            <ListaCompras key={index} item={item.item} quant={item.quant} onExcluir={() => excluirItem(index)} />
+            <ListaCompras
+              key={index}
+              item={item.item}
+              quant={item.quant}
+              onExcluir={() => excluirItem(index)}
+              onEditar={() => iniciarEdicao(index)}
+            />
           ))}
         </div>
       </div>

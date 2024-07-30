@@ -88,16 +88,77 @@
     background-color: var(--cor-terciaria);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 3%;
     padding: 3%;
     border-radius: 2vw;
     color: var(--cor-fonte_1);
 }
 
-/* Tela Tablet */
-/* @media screen and (min-width: 481px) and (max-width: 800px) {
+.parte_direita .Lista .item div {
+    display: flex;
+    gap: .4vw;
+}
 
-} */
+.parte_direita .Lista .item div button {
+    background-color: var(--cor-fonte_1);
+    width: 4vw;
+    padding: 1%;
+    border: 0;
+    border-radius: 2vw;
+    cursor: pointer;
+    color: white;
+}
+
+.parte_direita .Lista .item div button:hover {
+    background-color: var(--cor-secundaria);
+    transition: all .5s ease;
+}
+
+/* Tela Tablet */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .parte_esquerda {
+        width: 42%;
+        font-size: 1.3rem;
+    }
+    
+    .parte_esquerda img {
+        width: 80%;
+    }
+
+    .parte_esquerda input {
+        padding: 2%;
+        width: 35vw;
+        height: 5vh;
+        font-size: 1.2rem;
+    }
+
+    .parte_esquerda button {
+        background-color: var(--cor-fonte_1);
+        width: 25vw;
+        padding: 3%;
+        font-size: 1.2rem;
+    }
+
+    .parte_direita {
+        width: 58%;
+        font-size: 1.3rem;
+    }
+    
+    .parte_direita .Lista .item {
+        padding: 7%;
+    }
+
+    .parte_direita .Lista .item div {
+        gap: .3vw;
+    }
+
+    .parte_direita .Lista .item div button {
+        width: auto;
+        padding: 5.5%;
+        font-size: 1.1rem;
+    }
+}
 
 /* Tela Celular */
 @media screen and (min-width: 320px) and (max-width: 480px) {
@@ -132,11 +193,21 @@
     }
 
     .parte_direita .Lista {
-        width: 100%;
+        width: 80vw;
     }
 
-    .parte_direita .Lista h3 {
-        width: 70vw;
-        margin-top: 5%;
+    .parte_direita .Lista .item {
+        justify-content: space-around;
+        padding: 5%;
+    }
+
+    .parte_direita .Lista .item div {
+        gap: 2.5vw;
+        margin-right: 3%;
+    }
+
+    .parte_direita .Lista .item div button {
+        width: auto;
+        padding: 5.5%;
     }
 }
