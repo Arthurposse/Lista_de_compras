@@ -37,20 +37,23 @@ Esta aplicação em React permite ao usuário criar e gerenciar uma lista de com
 ### Pré-requisitos
 - Node.js instalado
 
-### Passo a Passo
+### Passo a Passo para Instalar React
 
-1. Clone o repositório para sua máquina local:
+1. Crie o projeto base do REACT:
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    npx create-react-app lista_compras
     ```
+
 2. Navegue até o diretório do projeto:
     ```bash
-    cd seu-repositorio
+    cd lista_compras
     ```
+
 3. Instale as dependências:
     ```bash
-    npm install
+    npm i express
     ```
+
 4. Inicie o servidor de desenvolvimento:
     ```bash
     npm start
@@ -65,7 +68,7 @@ Para enviar a aplicação para o Surge, siga os passos abaixo:
 
 1. Instale o Surge CLI globalmente:
     ```bash
-    npm install -g surge
+    npm install --global surge
     ```
 
 2. Construa a aplicação para produção:
