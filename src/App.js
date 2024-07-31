@@ -1,5 +1,6 @@
 import "./App.css";
 import ListaCompras from "./components/ListaCompras";
+import Formulario from "./components/Formulario";
 import React, { useState } from "react";
 import Carrinho from "./assets/Carrinho_compras.png";
 
@@ -10,14 +11,6 @@ function App() {
   const [editandoIndex, setEditandoIndex] = useState(null);
   const [textoItemEditado, setTextoItemEditado] = useState("");
   const [textoQuantEditado, setTextoQuantEditado] = useState("");
-
-  const atualizarItem = (event) => {
-    setTextoItem(event.target.value);
-  };
-
-  const atualizarQuant = (event) => {
-    setTextoQuant(event.target.value);
-  };
 
   const adicionarItem = () => {
     if (textoItem && textoQuant) {
@@ -56,56 +49,25 @@ function App() {
     <div className="body">
       <div className="parte_esquerda">
         <img src={Carrinho} alt="Carrinho de compras" />
-
         <h1> Lista de Compras </h1>
-
-        {editandoIndex !== null ? (
-          <>
-            <h3> Editar Item: </h3>
-            <input
-              type="text"
-              placeholder="Insira o nome do item"
-              value={textoItemEditado}
-              onChange={(e) => setTextoItemEditado(e.target.value)}
-            />
-
-            <h3> Editar Quantidade: </h3>
-            <input
-              type="number"
-              placeholder="Insira a quantidade"
-              value={textoQuantEditado}
-              onChange={(e) => setTextoQuantEditado(e.target.value)}
-            />
-
-            <button onClick={salvarEdicao}>Salvar</button>
-            <button onClick={cancelarEdicao}>Cancelar</button>
-          </>
-        ) : (
-          <>
-            <h3> Item: </h3>
-            <input
-              type="text"
-              placeholder="Insira o nome do item"
-              value={textoItem}
-              onChange={atualizarItem}
-            />
-
-            <h3> Quantidade: </h3>
-            <input
-              type="number"
-              placeholder="Insira a quantidade"
-              value={textoQuant}
-              onChange={atualizarQuant}
-            />
-
-            <button onClick={adicionarItem}>Adicionar</button>
-          </>
-        )}
+        <Formulario
+          textoItem={textoItem}
+          setTextoItem={setTextoItem}
+          textoQuant={textoQuant}
+          setTextoQuant={setTextoQuant}
+          textoItemEditado={textoItemEditado}
+          setTextoItemEditado={setTextoItemEditado}
+          textoQuantEditado={textoQuantEditado}
+          setTextoQuantEditado={setTextoQuantEditado}
+          adicionarItem={adicionarItem}
+          salvarEdicao={salvarEdicao}
+          cancelarEdicao={cancelarEdicao}
+          editandoIndex={editandoIndex}
+        />
       </div>
 
       <div className="parte_direita">
         <h1> Sua lista: </h1>
-
         <div className="Lista">
           {itens.map((item, index) => (
             <ListaCompras

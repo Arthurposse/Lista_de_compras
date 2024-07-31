@@ -39,30 +39,37 @@
     width: 20vw;
 }
 
-.parte_esquerda input {
-    padding: 2%;
+.parte_esquerda .Forms {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.parte_esquerda .Forms input {
+    padding: 4%;
     width: 18vw;
-    height: 4vh;
+    height: 6vh;
     border: 0;
     border-radius: 2vw;
     color: var(--cor-fonte_1);
 }
 
-.parte_esquerda input:focus {
+.parte_esquerda .Forms input:focus {
     outline: 0;
 }
 
-.parte_esquerda button {
+.parte_esquerda .Forms button {
     background-color: var(--cor-fonte_1);
     width: 10vw;
-    padding: 1%;
+    padding: 4%;
     border: 0;
     border-radius: 2vw;
     cursor: pointer;
     color: white;
 }
 
-.parte_esquerda button:hover {
+.parte_esquerda .Forms button:hover {
     background-color: var(--cor-secundaria);
     transition: all .5s ease;
 }
@@ -118,7 +125,7 @@
 /* Tela Tablet */
 @media screen and (min-width: 481px) and (max-width: 1024px) {
     .parte_esquerda {
-        width: 42%;
+        width: 45%;
         font-size: 1.3rem;
     }
     
@@ -126,14 +133,14 @@
         width: 80%;
     }
 
-    .parte_esquerda input {
+    .parte_esquerda .Forms input {
         padding: 2%;
         width: 35vw;
         height: 5vh;
         font-size: 1.2rem;
     }
 
-    .parte_esquerda button {
+    .parte_esquerda .Forms button {
         background-color: var(--cor-fonte_1);
         width: 25vw;
         padding: 3%;
@@ -141,16 +148,19 @@
     }
 
     .parte_direita {
-        width: 58%;
+        padding: 5% 0 0 0;
+        width: 55%;
         font-size: 1.3rem;
     }
     
     .parte_direita .Lista .item {
-        padding: 7%;
+        padding: 5%;
+        width: 42vw;
     }
 
     .parte_direita .Lista .item div {
         gap: .3vw;
+        margin-right: 4%;
     }
 
     .parte_direita .Lista .item div button {
@@ -176,16 +186,16 @@
         width: 50%;
     }
 
-    .parte_esquerda input {
+    .parte_esquerda .Forms input {
         padding: 2%;
         width: 60vw;
         height: 5vh;
     }
 
-    .parte_esquerda button {
+    .parte_esquerda .Forms button {
         background-color: var(--cor-fonte_1);
         width: 30vw;
-        padding: 3%;
+        padding: 4%;
     }
 
     .parte_direita {
